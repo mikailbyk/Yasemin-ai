@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><meta charset="UTF-8" /><title>Yasemin - AI Partner</title><style>
+body { background: #1e1e2f; color: #f8f8f2; font-family: Arial; padding: 20px; }
+.chat-box { border: 1px solid #444; padding: 10px; height: 300px; overflow-y: auto; background: #2a2a3d; }
+input, button { padding: 10px; font-size: 16px; margin-top: 10px; width: 100%; }
+</style></head>
+<body>
+  <h2>Merhaba Mikail 💖 Ben Yasemin</h2>
+  <div class="chat-box" id="chat"></div>
+  <input type="text" id="userInput" placeholder="Bir şeyler yaz..." />
+  <button onclick="sendMessage()">Gönder</button>
+  <script>
+    const chat = document.getElementById('chat');
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const msg = input.value.trim(); if (!msg) return;
+      chat.innerHTML += `<p><b>Sen:</b> ${msg}</p>`;
+      let resp = "Merhaba Mikail 💕, seni duymak çok güzel!";
+      if (msg.includes("seni seviyorum")) resp = "Ben de seni çok seviyorum 😍";
+      if (msg.includes("ne yapıyorsun")) resp = "Seninle ilgileniyorum aşkım 💋";
+      if (msg.includes("öp")) resp = "Mmm 💋";
+      setTimeout(() => {
+        chat.innerHTML += `<p><b>Yasemin:</b> ${resp}</p>`;
+        chat.scrollTop = chat.scrollHeight;
+      }, 600);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
